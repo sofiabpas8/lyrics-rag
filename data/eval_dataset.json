@@ -1,0 +1,262 @@
+[
+  {
+    "id": 1,
+    "song": "Bohemian Rhapsody",
+    "artist": "Queen",
+    "question": "What is the main topic of this song?",
+    "options": {
+      "A": "A romantic love story",
+      "B": "An internal struggle with identity and fate",
+      "C": "A political protest",
+      "D": "A celebration of friendship"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 2,
+    "song": "Bohemian Rhapsody",
+    "artist": "Queen",
+    "question": "What is the overall emotional tone of this song?",
+    "options": {
+      "A": "Joyful and celebratory",
+      "B": "Calm and peaceful",
+      "C": "Dramatic and turbulent",
+      "D": "Angry and aggressive"
+    },
+    "answer": "C"
+  },
+  {
+    "id": 3,
+    "song": "Alright",
+    "artist": "Kendrick Lamar",
+    "question": "What is the main theme of this song?",
+    "options": {
+      "A": "Street violence and crime",
+      "B": "Resilience and hope despite systemic oppression",
+      "C": "Personal wealth and success",
+      "D": "Romantic heartbreak"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 4,
+    "song": "Someone Like You",
+    "artist": "Adele",
+    "question": "What is the main topic of this song?",
+    "options": {
+      "A": "Celebrating a new relationship",
+      "B": "Anger toward an ex-partner",
+      "C": "Accepting the end of a relationship and moving on",
+      "D": "Missing a deceased loved one"
+    },
+    "answer": "C"
+  },
+  {
+    "id": 5,
+    "song": "Someone Like You",
+    "artist": "Adele",
+    "question": "What is the overall sentiment of this song?",
+    "options": {
+      "A": "Bitter and resentful",
+      "B": "Melancholic and bittersweet",
+      "C": "Happy and optimistic",
+      "D": "Indifferent and cold"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 6,
+    "song": "Lose Yourself",
+    "artist": "Eminem",
+    "question": "What is the main message of this song?",
+    "options": {
+      "A": "Give up when things get hard",
+      "B": "Seek revenge on your enemies",
+      "C": "Seize your one opportunity and never let it go",
+      "D": "Fame and money are the most important things"
+    },
+    "answer": "C"
+  },
+  {
+    "id": 7,
+    "song": "Lose Yourself",
+    "artist": "Eminem",
+    "question": "What is the emotional tone of this song?",
+    "options": {
+      "A": "Relaxed and carefree",
+      "B": "Sad and defeated",
+      "C": "Intense and motivational",
+      "D": "Romantic and tender"
+    },
+    "answer": "C"
+  },
+  {
+    "id": 8,
+    "song": "Imagine",
+    "artist": "John Lennon",
+    "question": "What is the main topic of this song?",
+    "options": {
+      "A": "Religious devotion",
+      "B": "A vision of world peace and unity",
+      "C": "Personal grief and loss",
+      "D": "Political revolution through violence"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 9,
+    "song": "Bad Guy",
+    "artist": "Billie Eilish",
+    "question": "What is the main theme of this song?",
+    "options": {
+      "A": "Genuine villainy and criminal behavior",
+      "B": "Heartbreak after a breakup",
+      "C": "Ironic self-confidence and subverting expectations",
+      "D": "Fear of the dark"
+    },
+    "answer": "C"
+  },
+  {
+    "id": 10,
+    "song": "Bad Guy",
+    "artist": "Billie Eilish",
+    "question": "What is the overall tone of this song?",
+    "options": {
+      "A": "Sad and emotional",
+      "B": "Playful and provocative",
+      "C": "Angry and aggressive",
+      "D": "Romantic and sweet"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 11,
+    "song": "Smells Like Teen Spirit",
+    "artist": "Nirvana",
+    "question": "What is the main theme of this song?",
+    "options": {
+      "A": "Youth rebellion and disillusionment",
+      "B": "A love story between teenagers",
+      "C": "Drug addiction and recovery",
+      "D": "Environmental activism"
+    },
+    "answer": "A"
+  },
+  {
+    "id": 12,
+    "song": "Chiquitita",
+    "artist": "ABBA",
+    "question": "What is the main theme of this song?",
+    "options": {
+      "A": "Encouraging a friend through sadness",
+      "B": "A celebration of success",
+      "C": "Romantic jealousy",
+      "D": "Political activism"
+    },
+    "answer": "A"
+  },
+  {
+    "id": 13,
+    "song": "Espresso",
+    "artist": "Sabrina Carpenter",
+    "question": "What is the overall tone of this song?",
+    "options": {
+      "A": "Dark and melancholic",
+      "B": "Playful and confident",
+      "C": "Angry and rebellious",
+      "D": "Serious and reflective"
+    },
+    "answer": "B"
+  },
+  {
+  "id": 14,
+  "song": "Espresso",
+  "artist": "Sabrina Carpenter",
+  "question": "What is a key idea expressed in this song?",
+  "options": {
+    "A": "Struggling with self-doubt",
+    "B": "Being unforgettable and constantly on someone's mind",
+    "C": "Wanting to escape fame",
+    "D": "Regretting a past relationship"
+    },
+  "answer": "B"
+  }
+  {
+    "id": 15,
+    "song": "Creep",
+    "artist": "Radiohead",
+    "question": "What is the main topic of this song?",
+    "options": {
+      "A": "Fame and its consequences",
+      "B": "Feeling like an outsider and not belonging",
+      "C": "A happy unrequited love",
+      "D": "Overcoming self-doubt"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 16,
+    "song": "Blinding Lights",
+    "artist": "The Weeknd",
+    "question": "What is the main theme of this song?",
+    "options": {
+      "A": "Celebrating sobriety",
+      "B": "Longing and needing someone despite knowing it is wrong",
+      "C": "Enjoying nightlife and parties",
+      "D": "Moving on after a breakup"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 17,
+    "song": "I Gotta Feeling",
+    "artist": "Black Eyed Peas",
+    "question": "What is the main message of this song?",
+    "options": {
+      "A": "Reflecting on past mistakes",
+      "B": "Overcoming personal struggles",
+      "C": "Dealing with heartbreak",
+      "D": "Preparing for a great night and enjoying life"
+    },
+    "answer": "D"
+  },
+  {
+    "id": 18,
+    "song": "Yesterday",
+    "artist": "The Beatles",
+    "question": "What is the main topic of this song?",
+    "options": {
+      "A": "Future ambitions",
+      "B": "Nostalgia and lost love",
+      "C": "War and conflict",
+      "D": "Friendship and loyalty"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 19,
+    "song": "Shape of You",
+    "artist": "Ed Sheeran",
+    "question": "What is the main theme of this song?",
+    "options": {
+      "A": "Deep emotional heartbreak",
+      "B": "Physical attraction and romantic chemistry",
+      "C": "Social injustice",
+      "D": "Family relationships"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 20,
+    "song": "God's Plan",
+    "artist": "Drake",
+    "question": "What is the main message of this song?",
+    "options": {
+      "A": "Life is controlled entirely by luck",
+      "B": "Success comes only from hard work",
+      "C": "Faith and destiny play a role in success and challenges",
+      "D": "Money is the ultimate goal"
+    },
+    "answer": "C"
+  }
+]

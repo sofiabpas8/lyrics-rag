@@ -7,13 +7,16 @@ Install: pip install lyricsgenius
 import os
 import json
 import lyricsgenius
+from dotenv import load_dotenv
+from pathlib import Path
 
 # ── Config ──────────────────────────────────────────────────────────────────
-GENIUS_TOKEN = "YOUR_GENIUS_API_TOKEN"  # https://genius.com/api-clients
+load_dotenv(dotenv_path=Path(__file__).parent / ".env")
+GENIUS_TOKEN = os.getenv("GENIUS_TOKEN")
 OUTPUT_DIR = "data/songs"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# ── Song list (customize this!) ──────────────────────────────────────────────
+# ── Song list ──────────────────────────────────────────────
 SONGS = [
     ("Bohemian Rhapsody", "Queen"),
     ("Alright", "Kendrick Lamar"),
@@ -25,11 +28,11 @@ SONGS = [
     ("Shape of You", "Ed Sheeran"),
     ("God's Plan", "Drake"),
     ("Creep", "Radiohead"),
-    ("Rolling in the Deep", "Adele"),
-    ("HUMBLE.", "Kendrick Lamar"),
+    ("Espresso", "Sabrina Carpenter"),
+    ("Chiquitita", "ABBA"),
     ("Yesterday", "The Beatles"),
     ("Blinding Lights", "The Weeknd"),
-    ("Stronger", "Kanye West"),
+    ("I Gotta Feeling", "Black Eyed Peas"),
 ]
 
 # ── Fetch and save ───────────────────────────────────────────────────────────
@@ -37,7 +40,6 @@ genius = lyricsgenius.Genius(
     GENIUS_TOKEN,
     skip_non_songs=True,
     excluded_terms=["(Remix)", "(Live)"],
-    verbose=False,
 )
 
 for title, artist in SONGS:
