@@ -1,0 +1,7 @@
+data/chroma_db/
+data/songs/
+data/rag_results.json
+data/baseline_results.json
+__pycache__/
+*.pyc
+.env
