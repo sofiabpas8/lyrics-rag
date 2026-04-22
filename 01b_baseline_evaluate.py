@@ -8,7 +8,7 @@ from langchain_community.llms import Ollama
 
 # ── Config ────────────────────────────────────────────────────────────────────
 DATASET_PATH = "data/eval_dataset.json"
-OLLAMA_MODEL = "mistral"
+OLLAMA_MODEL = "phi"
 
 PROMPT_TEMPLATE = """
 You are a music expert. Answer the following multiple-choice question.
@@ -43,7 +43,7 @@ for item in dataset:
         option_d=item["options"]["D"],
     )
 
-    raw_answer = llm(prompt).strip().upper()
+    raw_answer = llm.invoke(prompt).strip().upper()
     predicted = raw_answer[0] if raw_answer and raw_answer[0] in "ABCD" else "?"
 
     is_correct = predicted == item["answer"]
