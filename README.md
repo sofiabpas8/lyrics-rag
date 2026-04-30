@@ -10,7 +10,7 @@ rag_lyrics/
 ├── data/
 │   ├── songs/              ← Raw lyrics as .json files
 │   ├── chroma_db/          ← ChromaDB vector store (auto-generated)
-│   ├── eval_dataset.json   ← Your MC questions
+│   ├── eval_dataset.json   ← MC questions
 │   ├── baseline_results.json
 │   └── rag_results.json
 ├── 01_collect_lyrics.py    ← Fetch lyrics via Genius API
@@ -23,14 +23,17 @@ rag_lyrics/
 ## Setup
 
 ```bash
-# 1. Install dependencies
-pip install lyricsgenius langchain langchain-community chromadb \
-            sentence-transformers ollama
+# 1. Set environment
+cd ~/Desktop/lyrics-rag
+source venv/Scripts/activate
 
-# 2. Pull an Ollama model
+# 2. Install dependencies
+pip install requirements.txt
+
+# 3. Pull an Ollama model
 ollama pull mistral
 
-# 3. Get a free Genius API token
+# 4. Get a free Genius API token
 # → https://genius.com/api-clients (create an account, make an API client)
 ```
 
@@ -52,7 +55,7 @@ python 03_rag_evaluate.py
 
 ## Evaluation Dataset Format
 
-Edit `data/eval_dataset.json` with your questions:
+Edit `data/eval_dataset.json` with the questions:
 
 ```json
 [
@@ -71,17 +74,3 @@ Edit `data/eval_dataset.json` with your questions:
   }
 ]
 ```
-
-## Question Types to Include
-
-- **Topic**: "What is the main theme of this song?"
-- **Sentiment**: "What is the overall emotional tone?"
-- **Subject**: "Who or what is this song directed at?"
-- **Aspect**: "How does the artist feel about [specific topic]?"
-
-## Notes
-
-- Ollama must be running locally: `ollama serve`
-- Lyrics are stored as JSON with title, artist, and full lyrics
-- ChromaDB is local and persistent — no cloud needed
-- Use `all-MiniLM-L6-v2` embeddings (free, runs locally, no API key)
