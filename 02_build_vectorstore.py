@@ -1,13 +1,12 @@
 """
 STEP 2 - Build the ChromaDB vector store from saved lyrics
-Install: pip install langchain langchain-community chromadb sentence-transformers
 """
 
 import os
 import json
 import glob
-from langchain.schema import Document
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_core.documents import Document
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import HuggingFaceEmbeddings
 

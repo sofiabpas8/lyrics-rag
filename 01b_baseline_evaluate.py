@@ -1,10 +1,10 @@
 """
 STEP 1b - Baseline LLM evaluation WITHOUT RAG (Part 1 of assignment)
-This runs the LLM directly on the MC questions, no retrieval, for comparison.
+This runs the LLM directly on the MC questions.
 """
 
 import json
-from langchain_community.llms import Ollama
+from langchain_ollama import OllamaLLM
 
 # ── Config ────────────────────────────────────────────────────────────────────
 DATASET_PATH = "data/eval_dataset.json"
@@ -27,7 +27,7 @@ Answer (just the letter):"""
 with open(DATASET_PATH, "r") as f:
     dataset = json.load(f)
 
-llm = Ollama(model=OLLAMA_MODEL)
+llm = OllamaLLM(model=OLLAMA_MODEL)
 
 results = []
 correct = 0

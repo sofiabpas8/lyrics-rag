@@ -1,59 +1,19 @@
 """
 STEP 3 - RAG pipeline + evaluation on multiple-choice questions
-Install: pip install langchain langchain-community chromadb sentence-transformers ollama
-Make sure Ollama is running: `ollama serve` and `ollama pull mistral`
 """
 
 import json
-from langchain_community.vectorstores import Chroma
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.llms import Ollama
-from langchain.prompts import PromptTemplate
-from langchain.chains import RetrievalQA
+from langchain_chroma import Chroma
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_ollama import OllamaLLM
 
 # ── Config ────────────────────────────────────────────────────────────────────
 CHROMA_DIR = "data/chroma_db"
 DATASET_PATH = "data/eval_dataset.json"
-OLLAMA_MODEL = "mistral"  # or "llama3", "gemma", etc.
+OLLAMA_MODEL = "phi"  
 
-# ── Evaluation dataset format (save this as data/eval_dataset.json) ───────────
-EXAMPLE_DATASET = [
-    {
-        "id": 1,
-        "song": "Bohemian Rhapsody",
-        "artist": "Queen",
-        "question": "What is the main topic of this song?",
-        "options": {
-            "A": "A romantic love story",
-            "B": "An internal struggle with identity and fate",
-            "C": "A political protest",
-            "D": "A celebration of friendship"
-        },
-        "answer": "B"
-    },
-    {
-        "id": 2,
-        "song": "Alright",
-        "artist": "Kendrick Lamar",
-        "question": "What is the overall sentiment of this song?",
-        "options": {
-            "A": "Pessimistic and hopeless",
-            "B": "Angry and violent",
-            "C": "Hopeful despite adversity",
-            "D": "Nostalgic and melancholic"
-        },
-        "answer": "C"
-    },
-    # Add more questions here...
-]
-
-# Save example dataset if not exists
 import os
 os.makedirs("data", exist_ok=True)
-if not os.path.exists(DATASET_PATH):
-    with open(DATASET_PATH, "w") as f:
-        json.dump(EXAMPLE_DATASET, f, indent=2)
-    print(f"Example dataset saved to {DATASET_PATH}")
 
 # ── Load vector store ─────────────────────────────────────────────────────────
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
@@ -64,7 +24,7 @@ vectorstore = Chroma(
 retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 
 # ── Load LLM (Ollama running locally) ────────────────────────────────────────
-llm = Ollama(model=OLLAMA_MODEL)
+llm = OllamaLLM(model=OLLAMA_MODEL)
 
 # ── Prompt template ───────────────────────────────────────────────────────────
 PROMPT_TEMPLATE = """
@@ -95,7 +55,7 @@ for item in dataset:
     query = f"{item['song']} by {item['artist']}: {item['question']}"
 
     # Retrieve relevant chunks from vector store
-    docs = retriever.get_relevant_documents(query)
+    docs = retriever.invoke(query)
     context = "\n\n".join([d.page_content for d in docs])
 
     # Format the prompt
