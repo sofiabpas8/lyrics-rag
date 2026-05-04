@@ -21,7 +21,6 @@ vectorstore = Chroma(
     persist_directory=CHROMA_DIR,
     embedding_function=embeddings,
 )
-retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 
 # ── Load LLM (Ollama running locally) ────────────────────────────────────────
 llm = OllamaLLM(model=OLLAMA_MODEL)
@@ -29,7 +28,8 @@ llm = OllamaLLM(model=OLLAMA_MODEL)
 # ── Prompt template ───────────────────────────────────────────────────────────
 PROMPT_TEMPLATE = """
 You are a music expert. Use the following song lyrics to answer the question.
-Answer ONLY with the letter of the correct option (A, B, C, or D). Nothing else.
+You MUST answer with ONLY a single letter: A, B, C, or D.
+Do not explain. Do not write anything else. Just one letter.
 
 Song lyrics context:
 {context}
@@ -41,7 +41,7 @@ B) {option_b}
 C) {option_c}
 D) {option_d}
 
-Answer (just the letter):"""
+Your answer (one letter only):"""
 
 # ── Evaluation loop ───────────────────────────────────────────────────────────
 with open(DATASET_PATH, "r") as f:
@@ -55,6 +55,12 @@ for item in dataset:
     query = f"{item['song']} by {item['artist']}: {item['question']}"
 
     # Retrieve relevant chunks from vector store
+    retriever = vectorstore.as_retriever(
+        search_kwargs={
+            "k": 3,
+            "filter": {"title": item["song"].lower()}
+        }
+    )
     docs = retriever.invoke(query)
     context = "\n\n".join([d.page_content for d in docs])
 
@@ -69,7 +75,7 @@ for item in dataset:
     )
 
     # Get LLM answer
-    raw_answer = llm(prompt).strip().upper()
+    raw_answer = llm.invoke(prompt).strip().upper()
     predicted = raw_answer[0] if raw_answer and raw_answer[0] in "ABCD" else "?"
 
     is_correct = predicted == item["answer"]

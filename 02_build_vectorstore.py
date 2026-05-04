@@ -24,8 +24,8 @@ for filepath in glob.glob(os.path.join(SONGS_DIR, "*.json")):
     doc = Document(
         page_content=song["lyrics"],
         metadata={
-            "title": song["title"],
-            "artist": song["artist"],
+            "title": song["title"].lower(),
+            "artist": song["artist"].lower(),
             "source": filepath,
         },
     )
@@ -36,9 +36,8 @@ print(f"Loaded {len(documents)} songs.")
 # ── Split lyrics into chunks ──────────────────────────────────────────────────
 # Songs are short, so chunks can be generous (e.g. verse-sized)
 splitter = RecursiveCharacterTextSplitter(
-    chunk_size=500,
-    chunk_overlap=50,
-    separators=["\n\n", "\n", " "],
+    chunk_size=1000,  
+    chunk_overlap=100, 
 )
 chunks = splitter.split_documents(documents)
 print(f"Split into {len(chunks)} chunks.")
